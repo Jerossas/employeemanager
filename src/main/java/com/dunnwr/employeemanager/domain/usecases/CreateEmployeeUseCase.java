@@ -3,6 +3,8 @@ package com.dunnwr.employeemanager.domain.usecases;
 import com.dunnwr.employeemanager.domain.model.Employee;
 import com.dunnwr.employeemanager.domain.model.gateways.EmployeeRepository;
 
+import java.util.UUID;
+
 
 public class CreateEmployeeUseCase implements UseCase<Employee, Employee> {
 
@@ -14,6 +16,7 @@ public class CreateEmployeeUseCase implements UseCase<Employee, Employee> {
 
     @Override
     public Employee execute(Employee employee){
+        employee.setEmployeeCode(UUID.randomUUID().toString());
         return employeeRepository.save(employee);
     }
 }
