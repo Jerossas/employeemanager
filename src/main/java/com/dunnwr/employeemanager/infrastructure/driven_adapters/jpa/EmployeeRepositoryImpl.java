@@ -6,6 +6,8 @@ import com.dunnwr.employeemanager.infrastructure.driven_adapters.jpa.entities.Em
 import com.dunnwr.employeemanager.infrastructure.helpers.mapper.EmployeeMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
@@ -24,5 +26,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         EmployeeEntity savedEntity = jpaRepository.save(entity);
 
         return employeeMapper.toDomain(savedEntity);
+    }
+
+    @Override
+    public List<Employee> findAll(){
+        return employeeMapper.toDomainList(jpaRepository.findAll());
     }
 }
