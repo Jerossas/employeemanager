@@ -37,4 +37,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public void deleteById(Long id){
         jpaRepository.deleteById(id);
     }
+
+    @Override
+    public Employee findById(Long id){
+        return employeeMapper.toDomain(jpaRepository.findById(id).orElse(null));
+    }
 }
