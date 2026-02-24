@@ -32,4 +32,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public List<Employee> findAll(){
         return employeeMapper.toDomainList(jpaRepository.findAll());
     }
+
+    @Override
+    public Void deleteById(Long id){
+        jpaRepository.deleteById(id);
+        return null;
+    }
 }

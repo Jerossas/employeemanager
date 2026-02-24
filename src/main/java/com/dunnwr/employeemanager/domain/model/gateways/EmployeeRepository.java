@@ -8,4 +8,5 @@ public interface EmployeeRepository {
 
     Employee save(Employee employee);
     List<Employee> findAll();
+    Void deleteById(Long id);
 }
