@@ -34,8 +34,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Void deleteById(Long id){
+    public void deleteById(Long id){
         jpaRepository.deleteById(id);
-        return null;
     }
 }
